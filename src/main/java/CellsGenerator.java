@@ -7,6 +7,7 @@ public class CellsGenerator {
     int numColumns;
     int numTreasure;
 
+    Random rand = new Random();
     // Constructor
     public CellsGenerator(int numRows, int numColumns) {
 
@@ -49,7 +50,7 @@ public class CellsGenerator {
     }
 
     public void randomizeField(final Cells[][] field) {
-        Random rand = new Random();
+
 
         for (int row = field.length - 1; row > 0; row--) {
             for (int column = field[row].length - 1; column > 0; column--) {
