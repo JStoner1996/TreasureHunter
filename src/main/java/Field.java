@@ -1,29 +1,28 @@
 public class Field {
 
+    private final Cells[][] gameField;
     int minRows = 4;
     int minColumns = 4;
-
+    int maxRows = 36;
+    int maxColumns = 36;
     int numRows;
     int numColumns;
+    int numTreasures;
 
-    int numMines;
-
-    private final Cells[][] gameField;
-
-    public Field(int numRows, int numColumns){
-        this.numRows = Math.max(numRows, minRows);
-        this.numColumns = Math.max(numColumns, minColumns);
-        this.numMines= (this.numRows * this.numColumns)/5;
+    public Field(int numRows, int numColumns) {
+        this.numRows = numRows;
+        this.numColumns = numColumns;
+        this.numTreasures = (this.numRows * this.numColumns) / 4;
 
         CellsGenerator generator = new CellsGenerator(numRows, numColumns);
         gameField = generator.buildField();
     }
 
-    public Cells getCell(int row, int column){
+    public Cells getCell(int row, int column) {
         return gameField[row][column];
     }
 
-    public void displayField (){
+    public void displayField() {
         printHeader();
 
 
@@ -38,62 +37,19 @@ public class Field {
         }
         System.out.println();
 
-        System.out.println(getCell(1,2).isVisible);
-
     }
 
-
     private void printHeader() {
-        String headerCols = "   |";
+        String headColumns = "   |";
         String headerLine = "---|";
         for (int i = 0; i < numColumns; i++) {
             String index = String.format("%1$2s", i + 1);
-            headerCols = headerCols.concat(index + " ");
+            headColumns = headColumns.concat(index + " ");
             headerLine = headerLine.concat("---");
         }
-        System.out.println(headerCols);
+        System.out.println(headColumns);
         System.out.println(headerLine);
     }
 
-//    public void initGrid (){
-//
-//        for (int i = 0; i < field.length; i++){
-//            for (int j = 0; j <field.length; j++){
-//                Cells newCell = new Cells(i, j);
-//                if((rand.nextInt(99) < 20)) {
-//                    newCell.isMine = true;
-//                } else {
-//                    newCell.isMine = false;
-//                    newCell.isVisible = true;
-//                }
-//                    field[i][j] = newCell.setCharacter();
-//
-//            }
-//        }
-//    }
-
-//    public void displayGrid() {
-//
-//        for (int i = 0; i< field.length; i++ ) {
-//            for (int j = 0; j < field.length; j++){
-//                System.out.print(field[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
-//
-//        System.out.print("  ");
-//        for (int row = 0; row < size; row++) {
-//            System.out.print("\t " + (row + 1));
-//
-//        }
-//        System.out.println("");
-//        for (int row = 0; row < size; row++) {
-//            System.out.print((row + 1) + " ");
-//            for (int column = 0; column < size; column++) {
-//                System.out.print("\t ? ");
-//            }
-//            System.out.println("");
-//        }
-//      }
 }
 

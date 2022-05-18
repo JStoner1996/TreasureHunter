@@ -4,14 +4,14 @@ public class Cells {
     int visibleNumber;
     char character;
     boolean isFlag;
-    boolean isMine;
+    boolean isTreasure;
     boolean isVisible;
 
     public Cells() {
         this.visibleNumber = 0;
-        this.character = '?';
+        //this.character = '?';
         this.isFlag = false;
-        this.isMine = false;
+        this.isTreasure = false;
         this.isVisible = false;
     }
 
@@ -21,23 +21,22 @@ public class Cells {
 
         if (!this.isVisible) {
             return " ? ";
-        } else if (this.isMine) {
+        } else if (this.isTreasure) {
             return " * ";
-        }else if (this.isFlag){
+        } else if (this.isFlag) {
             return " ! ";
+        } else {
+            return "   ";
         }
-        else {
-            return "  ";
-       }
     }
 
-    public void revealCell(){
-        if(isVisible){
+    public void revealCell() {
+        if (isVisible) {
             System.out.println("A Cell can only be selected once");
         }
     }
 
-    public void changeToFlag(){
+    public void changeToFlag() {
         isFlag = true;
     }
 
@@ -68,13 +67,12 @@ public class Cells {
         isFlag = flag;
     }
 
-    public boolean isMine() {
-        return isMine;
+    public boolean isTreasure() {
+        return isTreasure;
     }
 
-    public void setMine() {
-        this.isMine=true;
-        this.isVisible=true;
+    public void setTreasure() {
+        this.isTreasure = true;
 
     }
 
