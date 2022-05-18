@@ -8,7 +8,7 @@ public class Field {
 
     int numMines;
 
-    public Cells[][] field;
+    private final Cells[][] gameField;
 
     public Field(int numRows, int numColumns){
         this.numRows = Math.max(numRows, minRows);
@@ -16,25 +16,30 @@ public class Field {
         this.numMines= (this.numRows * this.numColumns)/5;
 
         CellsGenerator generator = new CellsGenerator(numRows, numColumns);
-        field = generator.buildField();
+        gameField = generator.buildField();
     }
 
     public Cells getCell(int row, int column){
-        return field[row][column];
+        return gameField[row][column];
     }
 
     public void displayField (){
         printHeader();
 
+
         for (int row = 0; row < numRows; row++) {
             String index = String.format("%1$2s", row + 1);
             System.out.print(index + " |");
             for (int column = 0; column < numColumns; column++) {
-                System.out.print( " ? ");
+                System.out.print(getCell(row, column).getDisplayCharacter());
             }
+
             System.out.println();
         }
         System.out.println();
+
+        System.out.println(getCell(1,2).isVisible);
+
     }
 
 

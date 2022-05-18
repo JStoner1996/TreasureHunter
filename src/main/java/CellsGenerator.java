@@ -16,8 +16,12 @@ public class CellsGenerator {
 
     // Methods
     public Cells[][] buildField(){
-        Cells[][] newField = new Cells[this.numRows][this.numColumns];
-        return newField;
+        Cells[][] field = new Cells[this.numRows][this.numColumns];
+        addCells(field);
+        addMines(field);
+
+        System.out.println("There are "+ numMines + " mines.");
+        return field;
     }
 
     // Add empty cells to the field
@@ -25,6 +29,7 @@ public class CellsGenerator {
         for (int row = 0; row < this.numRows; row++){
             for (int column=0; column < this.numColumns; column++){
                 field[row][column] = new Cells();
+
             }
         }
     }
@@ -33,8 +38,10 @@ public class CellsGenerator {
         int mines = 0;
         for (int row = 0; row < this.numRows; row++){
             for (int column=0; column < this.numColumns; column++){
-                field[row][column].setMine(true);
-                mines++;
+                if (mines < numMines) {
+                    field[row][column].setMine();
+                    mines++;
+                }
             }
         }
         randomizeField(field);

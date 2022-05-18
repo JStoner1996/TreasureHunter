@@ -16,17 +16,18 @@ public class Cells {
     }
 
     // Methods
-    public String setCharacter() {
+    public String getDisplayCharacter() {
 
-        if (isFlag) {
-            return " ! ";
-        } else if (isMine) {
-            return " * ";
-        }else if (isVisible){
+
+        if (!this.isVisible) {
             return " ? ";
+        } else if (this.isMine) {
+            return " * ";
+        }else if (this.isFlag){
+            return " ! ";
         }
         else {
-            return "";
+            return "  ";
        }
     }
 
@@ -71,7 +72,10 @@ public class Cells {
         return isMine;
     }
 
-    public void setMine(boolean mine) {
+    public void setMine() {
+        this.isMine=true;
+        this.isVisible=true;
+
     }
 
     public boolean isVisible() {
