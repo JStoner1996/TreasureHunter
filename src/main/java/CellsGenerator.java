@@ -41,7 +41,7 @@ public class CellsGenerator {
         for (int row = 0; row < this.numRows; row++) {
             for (int column = 0; column < this.numColumns; column++) {
                 if (treasures < numTreasure) {
-                    field[row][column].setTreasure();
+                    field[row][column].setTreasure(true);
                     treasures++;
                 }
             }

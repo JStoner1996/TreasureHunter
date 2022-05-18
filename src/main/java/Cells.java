@@ -36,46 +36,15 @@ public class Cells {
         }
     }
 
-    public void changeToFlag() {
-        isFlag = true;
-    }
-
     // Getters & Setters
-
-
-    public int getVisibleNumber() {
-        return visibleNumber;
-    }
-
-    public void setVisibleNumber(int visibleNumber) {
-        this.visibleNumber = visibleNumber;
-    }
-
-    public char getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(char character) {
-        this.character = character;
-    }
-
-    public boolean isFlag() {
-        return isFlag;
-    }
-
-    public void setFlag(boolean flag) {
-        isFlag = flag;
-    }
-
     public boolean isTreasure() {
         return isTreasure;
     }
 
-    public void setTreasure() {
-        this.isTreasure = true;
+    public void setTreasure(boolean isTreasure) {
+        this.isTreasure = isTreasure;
 
     }
-
     public boolean isVisible() {
         return isVisible;
     }

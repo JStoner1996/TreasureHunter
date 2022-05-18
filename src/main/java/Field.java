@@ -30,7 +30,7 @@ public class Field {
             String index = String.format("%1$2s", row + 1);
             System.out.print(index + " |");
             for (int column = 0; column < numColumns; column++) {
-                System.out.print(getCell(row, column).getDisplayCharacter());
+                System.out.print(getCell(row, column).getDisplayCharacter()); // Prints either '?', ' ' or '*'
             }
 
             System.out.println();
